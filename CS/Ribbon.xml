@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab
+				id="tabMarkup"
+				getLabel="GetLabelText"
+				insertAfterMso="TabHome"
+				>
+				<group
+					id="grpMarkupColor"
+					label="Select Markup Color"
+					getImage="GetButtonImage">
+					<button
+            id="btnSelectColor"
+            label="Color Palette"
+            onAction="OnAction"
+            imageMso ="AppointmentColorDialog"
+            size="large"
+            screentip="Select a color for the Markup shapes"
+					/>
+					<separator
+						id="separator3"
+					/>
+					<labelControl
+						id="lblSelectColor"
+						label="Standard Colors"
+					/>
+					<dropDown
+						id="drpColorType"
+						getItemLabel="GetItemLabel"
+						onAction="OnAction_Dropdown"
+						showLabel="false"
+						getItemCount="GetItemCount"
+						getSelectedItemID="GetSelectedItemID"
+						sizeString= "XXXXXXX"
+					/>
+				</group>
+        <group
+					id="grpMarkups"
+					label="Insert Markup"
+					getImage="GetButtonImage">
+            <button 
+              id="btnRev"
+              label="Revision Triangle"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a revision triangle in the area of the selected cell(s)"
+					/>
+            <button
+              id="btnCloudAll"
+              label="Cloud"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a cloud in the area of the selected cell(s)"
+					/>
+            <button
+              label="Cloud Inverted"
+              id="btnCloudHold"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert an inverted cloud in the area of the selected cell(s)"
+					/>
+            <button
+              id="btnCloudHatch"
+              label="Cloud &amp;&amp; Hatch"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a cloud with hatching in the area of the selected cell(s)"
+					/>
+            <button
+              id="btnAreaHatch"
+              label="Hatch"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert hatching in the area of the selected cell(s)"
+					/>
+				</group>
+					<group
+							id="grpMarkupPart"
+							label="Insert Cloud Part"
+							getImage="GetButtonImage">
+            <button
+              id="btnCloudPartLeft"
+              label="Left"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a cloud part on the Left of the selected cell(s)"
+					/>
+            <button
+              id="btnCloudPartRight"
+              label="Right"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a cloud part on the Right of the selected cell(s)"
+					/>
+            <button
+              id="btnCloudPartTop"
+              label="Top"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a cloud part on the Top of the selected cell(s)"
+					/>
+            <button
+              id="btnCloudPartBottom"
+              label="Bottom"
+              onAction="OnAction"
+              getEnabled="GetEnabled"
+              getImage="GetButtonImage"
+							size="large"
+              screentip="Insert a cloud part on the Bottom of the selected cell(s)"
+					/>
+					</group>
+					<group
+							id="grpMarkupEdit"
+							label="Edit Markup"
+							getImage="GetButtonImage">
+          <menu
+						idMso="ObjectsGroupMenu"
+						size="large"
+					/>
+          <button
+						id="btnRemoveLastShape"
+						label="Remove Last"
+						onAction="OnAction"
+						imageMso="Undo"
+						size="large"
+						screentip="Remove the last shape created"
+					/>
+          <button
+						id="btnRemoveAllShapes"
+						label="Remove All"
+						onAction="OnAction"
+						imageMso="Clear"
+						size="large"
+						screentip="Remove all Markup shapes from the active worksheet"
+					/>
+        </group>
+
+				<group
+						id="grpHelp"
+						label="Help"
+						imageMso="Help">
+					<button
+							id="btnOpenReadMe"
+							label="How To...   "
+							onAction="OnAction"
+							imageMso="Help"
+							size="normal"
+							screentip="How To..."
+							supertip="This opens the read me page with detailed instructions of the Add-In functionality."
+              keytip="HLP"
+							/>
+					<button
+							id="btnOpenNewIssue"
+							label="Report Issue"
+							onAction="OnAction"
+							imageMso="MacroSecurity"
+							size="normal"
+							screentip="Report An Issue"
+							supertip="This will open a new issue page in GitHub. The user will need to login to raise an issue."
+              keytip="RPT"
+							/>
+					<button
+							id="btnSettings"
+							label="Settings"
+							onAction="OnAction"
+							imageMso="PropertySheet"
+							size="normal"
+							screentip="Add-In Settings Form"
+							supertip="This opens a user form with a list of custom properties stored in the file."
+              keytip="SET"
+							/>
+				</group>
+				<group
+						id="grpAbout"
+						label="About"
+						imageMso="Info">
+					<labelControl
+							id="lblDescription"
+							label="Add-In Name: "
+							getEnabled="False"
+							/>
+					<labelControl
+							id="lblReleaseDate"
+							label="Release Date: "
+							getEnabled="False"
+							/>
+					<labelControl
+							id="lblCopyright"
+							label="Copyright: "
+							getEnabled="False"
+							/>
+					<labelControl
+							id="txtDescription"
+							getLabel="GetLabelText"
+							getEnabled="False"
+							/>
+					<labelControl
+							id="txtReleaseDate"
+							getLabel="GetLabelText"
+							getEnabled="False"
+							/>
+					<labelControl
+							id="txtCopyright"
+							getLabel="GetLabelText"
+							getEnabled="False"
+							/>
+				</group>	
+
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+
