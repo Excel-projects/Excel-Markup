@@ -2,7 +2,7 @@
 <head>
 </head>
 
-<img align="left" src="Images/ReadMe/header2.png">
+<img align="left" src="Images/ReadMe/header3.png">
 
 [![Join the chat at https://gitter.im/Excel-Markup](https://badges.gitter.im/Excel-Markup/Lobby.svg)](https://gitter.im/Excel-Markup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE "MIT License Copyright © Anthony Duguid")
