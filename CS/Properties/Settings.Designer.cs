@@ -12,7 +12,7 @@ namespace Markup.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -47,12 +47,12 @@ namespace Markup.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("A")]
-        public string Markup_RevisionTriangleCharacter {
+        public string Markup_TriangleRevisionCharacter {
             get {
-                return ((string)(this["Markup_RevisionTriangleCharacter"]));
+                return ((string)(this["Markup_TriangleRevisionCharacter"]));
             }
             set {
-                this["Markup_RevisionTriangleCharacter"] = value;
+                this["Markup_TriangleRevisionCharacter"] = value;
             }
         }
         
@@ -91,7 +91,7 @@ namespace Markup.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Office-projects/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Office-projects/Excel-Markup/blob/master/README.md")]
         public string App_PathReadMe {
             get {
                 return ((string)(this["App_PathReadMe"]));
@@ -103,7 +103,7 @@ namespace Markup.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Office-projects/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Office-projects/Excel-Markup/issues/new")]
         public string App_PathNewIssue {
             get {
                 return ((string)(this["App_PathNewIssue"]));
@@ -122,6 +122,18 @@ namespace Markup.Properties {
             }
             set {
                 this["App_ReleaseDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public double Markup_ShapeLineSpacing {
+            get {
+                return ((double)(this["Markup_ShapeLineSpacing"]));
+            }
+            set {
+                this["Markup_ShapeLineSpacing"] = value;
             }
         }
     }

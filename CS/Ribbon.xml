@@ -17,7 +17,8 @@
             onAction="OnAction"
             imageMso ="AppointmentColorDialog"
             size="large"
-            screentip="Select a color for the Markup shapes"
+            screentip="Select A Color"
+            supertip="Select a color for the Markup shapes"
 					/>
 					<separator
 						id="separator3"
@@ -34,21 +35,50 @@
 						getItemCount="GetItemCount"
 						getSelectedItemID="GetSelectedItemID"
 						sizeString= "XXXXXXX"
+            screentip="Update Shape(s) Color"
+            supertip="Update the color for the selected shapes"
+					/>
+        	<button
+            id="btnUpdateColor"
+            label="Update"
+            onAction="OnAction"
+            imageMso ="CellFillColorPicker"
+            screentip="Update Shape(s) Color"
+            supertip="Update the color for the selected shapes"
 					/>
 				</group>
         <group
-					id="grpMarkups"
-					label="Insert Markup"
+					id="grpRevision"
+					label="Insert Revision"
 					getImage="GetButtonImage">
-            <button 
+            <labelControl
+              id="lblRevisionCharacter"
+              label="Character"
+					  />
+            <editBox
+              id="txtRevisionCharacter"
+              onChange="OnChange"
+              getText="GetLabelText"
+              sizeString= "XXXXXXX"
+              maxLength="1"
+              screentip="Revision Character"
+              supertip="This character will appear in the middle of the triangle."
+						/>
+            <button
               id="btnRev"
-              label="Revision Triangle"
+              label="Triangle"
               onAction="OnAction"
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
-							size="large"
-              screentip="Insert a revision triangle in the area of the selected cell(s)"
-					/>
+              size="large"
+              screentip="Revision Triangle"
+              supertip="Insert a revision triangle in the area of the selected cell(s)"
+					  />
+          </group>
+          <group
+					    id="grpMarkups"
+					    label="Insert Markup"
+					    getImage="GetButtonImage">
             <button
               id="btnCloudAll"
               label="Cloud"
@@ -56,7 +86,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert a cloud in the area of the selected cell(s)"
+              screentip="Insert Cloud"
+              supertip="Insert a cloud in the area of the selected cell(s)"
 					/>
             <button
               label="Cloud Inverted"
@@ -65,7 +96,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert an inverted cloud in the area of the selected cell(s)"
+              screentip="Insert Cloud Inverted"
+              supertip="Insert an inverted cloud in the area of the selected cell(s)"
 					/>
             <button
               id="btnCloudHatch"
@@ -74,7 +106,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert a cloud with hatching in the area of the selected cell(s)"
+              screentip="Insert Cloud With Hatch"
+              supertip="Insert a cloud with hatching in the area of the selected cell(s)"
 					/>
             <button
               id="btnAreaHatch"
@@ -83,7 +116,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert hatching in the area of the selected cell(s)"
+              screentip="Insert Hatch"
+              supertip="Insert hatching in the area of the selected cell(s)"
 					/>
 				</group>
 					<group
@@ -97,7 +131,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert a cloud part on the Left of the selected cell(s)"
+              screentip="Insert Left Cloud"
+              supertip="Insert a cloud part on the Left of the selected cell(s)"
 					/>
             <button
               id="btnCloudPartRight"
@@ -106,7 +141,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert a cloud part on the Right of the selected cell(s)"
+              screentip="Insert Right Cloud"
+              supertip="Insert a cloud part on the Right of the selected cell(s)"
 					/>
             <button
               id="btnCloudPartTop"
@@ -115,7 +151,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert a cloud part on the Top of the selected cell(s)"
+              screentip="Insert Top Cloud"
+              supertip="Insert a cloud part on the Top of the selected cell(s)"
 					/>
             <button
               id="btnCloudPartBottom"
@@ -124,7 +161,8 @@
               getEnabled="GetEnabled"
               getImage="GetButtonImage"
 							size="large"
-              screentip="Insert a cloud part on the Bottom of the selected cell(s)"
+              screentip="Insert Bottom Cloud"
+              supertip="Insert a cloud part on the Bottom of the selected cell(s)"
 					/>
 					</group>
 					<group
@@ -141,7 +179,8 @@
 						onAction="OnAction"
 						imageMso="Undo"
 						size="large"
-						screentip="Remove the last shape created"
+						screentip="Remove Last Shape"
+            supertip="Remove the last shape created"
 					/>
           <button
 						id="btnRemoveAllShapes"
@@ -149,7 +188,8 @@
 						onAction="OnAction"
 						imageMso="Clear"
 						size="large"
-						screentip="Remove all Markup shapes from the active worksheet"
+						screentip="Remove All Shape"
+            supertip="Remove all Markup shapes from the active worksheet"
 					/>
         </group>
 

@@ -208,7 +208,6 @@
   <ItemGroup>
     <Compile Include="Scripts\ErrorHandler.cs" />
     <Compile Include="Scripts\AssemblyInfo.cs" />
-    <Compile Include="Scripts\DialogBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

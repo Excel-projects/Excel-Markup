@@ -22,24 +22,28 @@ namespace Markup.Scripts
         /// </summary>
         public static Ribbon ribbonref;
 
-        /// <summary>
-        /// Settings TaskPane
-        /// </summary>
-        public TaskPane.Settings mySettings;
+		#region | Task Panes |
+
+		/// <summary>
+		/// Settings TaskPane
+		/// </summary>
+		public TaskPane.Settings mySettings;
 
         /// <summary>
         /// Settings Custom Task Pane
         /// </summary>
         public Microsoft.Office.Tools.CustomTaskPane myTaskPaneSettings;
 
-        /// <summary> 
-        /// The Clouds ribbon
-        /// </summary>
-        public Ribbon()
+		#endregion
+
+        #region | Ribbon Events |
+
+		/// <summary> 
+		/// The Clouds ribbon
+		/// </summary>
+		public Ribbon()
         {
         }
-
-        #region | IRibbonExtensibility Members |
 
         /// <summary> 
         /// Loads the XML markup, either from an XML customization file or from XML markup embedded in the procedure, that customizes the Ribbon user interface.
@@ -52,11 +56,12 @@ namespace Markup.Scripts
             return GetResourceText("Markup.Ribbon.xml");
         }
 
-        #endregion
-
-        #region | Helpers |
-
-        private static string GetResourceText(string resourceName)
+		/// <summary>
+		/// Called by the GetCustomUI method to obtain the contents of the Ribbon XML file.
+		/// </summary>
+		/// <param name="resourceName">name of  the XML file</param>
+		/// <returns>the contents of the XML file</returns>
+		private static string GetResourceText(string resourceName)
         {
             Assembly asm = Assembly.GetExecutingAssembly();
             string[] resourceNames = asm.GetManifestResourceNames();
@@ -75,10 +80,6 @@ namespace Markup.Scripts
             }
             return null;
         }
-
-        #endregion
-
-        #region | Ribbon Events |
 
         /// <summary> 
         /// loads the ribbon UI and creates a log record
@@ -115,10 +116,11 @@ namespace Markup.Scripts
             {
                 switch (control.Id)
                 {
-                    case "grpMarkups":
-                    case "btnRev":
+                    case "grpRevision":
+					case "btnRev":
                         return Properties.Resources.RevTri;
-                    case "btnCloudAll":
+					case "grpMarkups":
+					case "btnCloudAll":
                         return Properties.Resources.Cloud;
                     case "btnCloudHold":
                         return Properties.Resources.CloudHold;
@@ -175,7 +177,9 @@ namespace Markup.Scripts
                     case "txtReleaseDate":
                         DateTime dteCreateDate = Properties.Settings.Default.App_ReleaseDate;
                         return dteCreateDate.ToString("dd-MMM-yyyy hh:mm tt");
-                    default:
+					case "txtRevisionCharacter":
+						return Properties.Settings.Default.Markup_TriangleRevisionCharacter;
+					default:
                         return string.Empty;
                 }
             }
@@ -324,7 +328,10 @@ namespace Markup.Scripts
                     case "btnSelectColor":
                         SelectLineColor();
                         break;
-                    case "btnRev":
+					case "btnUpdateColor":
+						UpdateLineColor();
+						break;
+					case "btnRev":
                         CreateRevisionTriangle();
                         break;
                     case "btnCloudAll":
@@ -421,15 +428,40 @@ namespace Markup.Scripts
 
         }
 
-        #endregion
+		/// <summary>
+		/// Preforms an action based on the text change of the control
+		/// </summary>
+		/// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility.</param>
+		/// <param name="text">Represents the text identifier of the control</param>
+		public void OnChange(Office.IRibbonControl control, ref string text)
+		{
+			try
+			{
+				switch (control.Id)
+				{
+					case "txtRevisionCharacter":
+						{
+							Properties.Settings.Default.Markup_TriangleRevisionCharacter = text;
+							break;
+						}
+				}
+			}
 
-        #region | Ribbon Buttons |
+			catch (Exception ex)
+			{
+				ErrorHandler.DisplayMessage(ex);
+			}
+		}
 
-        /// <summary> 
-        /// Creates a revision triangle and prompts the user for text value(s)
-        /// </summary>
-        /// <remarks></remarks>
-        public void CreateRevisionTriangle()
+		#endregion
+
+		#region | Ribbon Buttons |
+
+		/// <summary> 
+		/// Creates a revision triangle and prompts the user for text value(s)
+		/// </summary>
+		/// <remarks></remarks>
+		public void CreateRevisionTriangle()
         {
             Excel.Shape shpTriangle = null;
             Excel.Shape txtTriangle = null;
@@ -474,12 +506,7 @@ namespace Markup.Scripts
                 shpTriangle.Line.Weight = Convert.ToSingle(1.5);
                 txtTriangle = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, Convert.ToSingle(x), Convert.ToSingle(y + h * 0.2), Convert.ToSingle(w), Convert.ToSingle(h * 0.8));
                 txtTriangle.Select();
-                string revChar = Properties.Settings.Default.Markup_RevisionTriangleCharacter;
-                if (DialogBox.InputBox("Please enter a revision character", "Revision Triangle", ref revChar) == DialogResult.OK)
-                {
-                    Properties.Settings.Default.Markup_RevisionTriangleCharacter = revChar;
-                }
-                txtTriangle.TextEffect.Text = revChar;
+                txtTriangle.TextEffect.Text = Properties.Settings.Default.Markup_TriangleRevisionCharacter;
                 Globals.ThisAddIn.Application.Selection.Font.Color = Properties.Settings.Default.Markup_ShapeLineColor;
                 Globals.ThisAddIn.Application.Selection.Font.Size = f;
                 Globals.ThisAddIn.Application.Selection.Border.LineStyle = Excel.Constants.xlNone;
@@ -823,21 +850,21 @@ namespace Markup.Scripts
 
         }
 
-        #endregion
+		#endregion
 
-        #region | Subroutines |
+		#region | Subroutines |
 
-        /// <summary> 
-        /// Creates an arc based on user selection
-        /// </summary>
-        /// <param name="x1">X Axis 1 </param>
-        /// <param name="y1">Y Axis 1 </param>
-        /// <param name="x2">X Axis 2 </param>
-        /// <param name="y2">Y Axis 2 </param>
-        /// <param name="length">description here... </param>
-        /// <returns>A method that creates an arc shape between 2 sets for coordinates </returns> 
-        /// <remarks></remarks>
-        public Excel.Shape CreateArc(double x1, double y1, double x2, double y2, double length)
+		/// <summary> 
+		/// Creates an arc based on user selection
+		/// </summary>
+		/// <param name="x1">X Axis 1 </param>
+		/// <param name="y1">Y Axis 1 </param>
+		/// <param name="x2">X Axis 2 </param>
+		/// <param name="y2">Y Axis 2 </param>
+		/// <param name="length">description here... </param>
+		/// <returns>A method that creates an arc shape between 2 sets for coordinates </returns> 
+		/// <remarks></remarks>
+		public Excel.Shape CreateArc(double x1, double y1, double x2, double y2, double length)
         {
             Excel.Shape cloudArc = null;
             try
@@ -900,7 +927,7 @@ namespace Markup.Scripts
             Excel.ShapeRange shapeRange = null;
             try
             {
-                double length = 25;
+                double length = Properties.Settings.Default.Markup_ShapeLineSpacing;
                 int i = 0;
                 double x = 0;
                 double y = 0;
@@ -1029,13 +1056,14 @@ namespace Markup.Scripts
         public Excel.Shape CreateHatchArea(double x, double y, double h, double w)
         {
             string shapeName = "AreaHatch";
-            double xx1 = 0;
+			double length = Properties.Settings.Default.Markup_ShapeLineSpacing;
+			double xx1 = 0;
             double yy1 = 0;
             double xx2 = 0;
             double yy2 = 0;
             double x1 = x + y;
-            double x2 = Math.Floor(x1 / 20);
-            double x3 = (x2 + 1) * 20;
+            double x2 = Math.Floor(x1 / length);
+            double x3 = (x2 + 1) * length;
             double xDiff = x3 - x1;
             double xl = x;
             double xr = x + w;
@@ -1085,7 +1113,7 @@ namespace Markup.Scripts
                         hatchLine1.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                         shapesList.Add(hatchLine1.Name);
                         SetLineColor();
-                        xsp = xsp + 20;
+                        xsp = xsp + length;
                     }
                 }
                 else
@@ -1121,7 +1149,7 @@ namespace Markup.Scripts
                         hatchLine2.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                         shapesList.Add(hatchLine2.Name);
                         SetLineColor();
-                        ysp = ysp + 20;
+                        ysp = ysp + length;
                     }
                 }
                 object[] shapes = shapesList.ToArray();
@@ -1230,6 +1258,29 @@ namespace Markup.Scripts
         {
             ribbon.Invalidate();
         }
+
+		/// <summary>
+		/// Update the line color of selected shapes
+		/// </summary>
+		public void UpdateLineColor()
+		{
+			try
+			{
+				if (ErrorHandler.IsActiveSelection() == false)
+				{
+					SetLineColor();
+
+					//if triangle use these lines
+					//Globals.ThisAddIn.Application.Selection.Font.Color = Properties.Settings.Default.Markup_ShapeLineColor;
+					//Globals.ThisAddIn.Application.Selection.Interior.Pattern = Excel.XlPattern.xlPatternNone;
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorHandler.DisplayMessage(ex);
+
+			}
+		}
 
         #endregion
 
