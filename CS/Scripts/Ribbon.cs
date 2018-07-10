@@ -516,7 +516,7 @@ namespace Markup.Scripts
                 txtTriangle.TextFrame.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 txtTriangle.TextFrame.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 txtTriangle.TextFrame.AutoSize = true;
-                txtTriangle.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                txtTriangle.Name = "txt" + shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                 object[] shapes = { shpTriangle.Name, txtTriangle.Name };
                 shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
                 shapeRange.Group();
@@ -1268,11 +1268,23 @@ namespace Markup.Scripts
 			{
 				if (ErrorHandler.IsActiveSelection() == false)
 				{
-					SetLineColor();
-
-					//if triangle use these lines
-					//Globals.ThisAddIn.Application.Selection.Font.Color = Properties.Settings.Default.Markup_ShapeLineColor;
-					//Globals.ThisAddIn.Application.Selection.Interior.Pattern = Excel.XlPattern.xlPatternNone;
+					Excel.ShapeRange shapeObjects = Globals.ThisAddIn.Application.Selection.ShapeRange;
+					foreach (Excel.Shape shape in shapeObjects)
+					{
+						if (shape.Name.StartsWith("RevTri") && shape.Type != Microsoft.Office.Core.MsoShapeType.msoTextBox)
+						{
+							shape.Select();
+							Globals.ThisAddIn.Application.Selection.ShapeRange.Line.ForeColor.RGB = Properties.Settings.Default.Markup_ShapeLineColor;
+							Globals.ThisAddIn.Application.Selection.Font.Color = Properties.Settings.Default.Markup_ShapeLineColor;
+						}
+						else
+						{
+							if (shape.Type != Microsoft.Office.Core.MsoShapeType.msoTextBox)
+							{
+								SetLineColor();
+							}
+						}
+					}
 				}
 			}
 			catch (Exception ex)
