@@ -19,7 +19,7 @@ This Add-In is used for marking up Excel files with revisions.
 There are two common methods of indicating where a revision has changed a drawing that contains a system diagram. The first is the cloud method, were each change is enclosed by a cloud shape.  The second method involves placing a triangle with the revision number next to each effected portion of the drawing.  The cloud method indicates changes from the most recent revision only, whereas the second method indicates all revisions to the drawing because all of the previous revision circles remain on the drawing.
 
 <h1 align="left">
-  <img src="Images/ReadMe/vsto.excel.ribbon.markup.gif?" />
+  <img src="Images/ReadMe/vsto.excel.ribbon.markup.gif" />
 </h1>
 
 <br>
