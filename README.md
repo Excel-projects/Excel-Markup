@@ -9,8 +9,6 @@
 [![Latest Release](https://img.shields.io/github/release/Office-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Office-projects/Excel-Markup/releases)
 [![Github commits (since latest release)](https://img.shields.io/github/commits-since/Office-projects/Excel-Markup/latest.svg)](https://github.com/Office-projects/Excel-Markup)
 
-TODO: Create new .gif file for latest update
-
 The most complete version is C#. 
 <a href="https://github.com/Office-projects/Excel-Markup/issues" target="_blank">
  <img alt="Issues" src="https://img.shields.io/github/issues/Office-projects/Excel-Markup.svg" />
