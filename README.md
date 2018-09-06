@@ -4,6 +4,7 @@
 
 <img align="left" src="Images/ReadMe/header3.png">
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/AnthonyDuguid)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE "MIT License Copyright © Anthony Duguid")
 [![Latest Release](https://img.shields.io/github/release/Office-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Office-projects/Excel-Markup/releases)
 [![Github commits (since latest release)](https://img.shields.io/github/commits-since/Office-projects/Excel-Markup/latest.svg)](https://github.com/Office-projects/Excel-Markup)
