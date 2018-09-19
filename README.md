@@ -1,7 +1,3 @@
-<html>
-<head>
-</head>
-
 <img align="left" src="Images/ReadMe/header3.png">
 
 This Add-In is used for marking up Excel files with revisions.
@@ -158,15 +154,12 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 <a id="user-content-help" class="anchor" href="#ribbon-group-help" aria-hidden="true"> </a>
 ###	Help (Group)
 
-<a id="user-content-how-to" class="anchor" href="#how-to" aria-hidden="true"> </a>
 #### How To… (Button)
 * Opens a webpage of the read me documentation
 
-<a id="user-content-api-doc" class="anchor" href="#api-doc" aria-hidden="true"> </a>
 #### Report Issue (Button)
 * Opens a page to create a new issue for the product
 
-<a id="user-content-settings" class="anchor" href="#settings" aria-hidden="true"> </a>
 #### Add-In Settings (Button)
 
 <kbd>
@@ -213,17 +206,11 @@ VBA
   <img src="Images/ReadMe/ribbon.group.about.png" />
 </h1>
 
-<a id="user-content-description" class="anchor" href="#description" aria-hidden="true"> </a>
 #### Add-in Name (Label)
 * The application name with the version
 
-<a id="user-content-install-date" class="anchor" href="#install-date" aria-hidden="true"> </a>
 #### Release Date (Label)
 * The release date of the application
 
-<a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"> </a>
 #### Copyright (Label)
 * The author’s name
-
-</body>
-</html>
