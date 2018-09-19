@@ -89,13 +89,67 @@ How to install the VSTO version
 This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed below is the detailed functionality of this application and its components.  
 
 
-<a id="user-content-clipboard" class="anchor" href="#clipboard" aria-hidden="true"> </a>
-###	Clipboard (Group)
+###	Select Markup Color (Group)
 
-<a id="user-content-paste" class="anchor" href="#paste" aria-hidden="true"> </a>
-####	Paste (Menu)
-* Paste the contents of the clipboard
+#### color Palette (Button)
+* ...
 
+#### Standard Colors (Dropdown)
+* ...
+
+#### Update (Button)
+* ...
+
+
+###	Insert Revision (Group)
+
+#### Character (Textbox)
+* ...
+
+#### Triangle (Button)
+* ...
+
+
+###	Insert Markup (Group)
+
+#### Cloud (Button)
+* ...
+
+#### Cloud Inverted (Button)
+* ...
+
+#### Cloud & Hatch (Button)
+* ...
+
+#### Hatch (Button)
+* ...
+
+
+###	Insert Cloud Part (Group)
+
+#### Left (Button)
+* ...
+
+#### Right (Button)
+* ...
+
+#### Top (Button)
+* ...
+
+#### Bottom (Button)
+* ...
+
+
+###	Edit Markup (Group)
+
+#### Group (Menu)
+* ...
+
+#### Remove Last (Button)
+* ...
+
+#### Remove All (Button)
+* ...
 
 
 <a id="user-content-help" class="anchor" href="#help" aria-hidden="true"> </a>
