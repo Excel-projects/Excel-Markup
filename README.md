@@ -24,13 +24,13 @@ The most complete version is C#.
 - <a href="#dependencies">Dependencies</a>
 - <a href="#glossary-of-terms">Glossary of Terms</a>
 - <a href="#functionality">Functionality</a> 
-    - <a href="#ribbon-group-select-markup-color">Select Markup Color</a>
-    - <a href="#ribbon-group-insert-revision">Insert Revision</a>
-    - <a href="#ribbon-group-insert-markup">Insert Markup</a>
-    - <a href="#ribbon-group-insert-cloud-part">Insert Cloud Part</a>
-    - <a href="#ribbon-group-edit-markup">Edit Markup</a>
-    - <a href="#ribbon-group-help">Help</a>
-    - <a href="#ribbon-group-about">About</a>
+    - <a href="#select-markup-color">Select Markup Color</a>
+    - <a href="#insert-revision">Insert Revision</a>
+    - <a href="#insert-markup">Insert Markup</a>
+    - <a href="#insert-cloud-part">Insert Cloud Part</a>
+    - <a href="#edit-markup">Edit Markup</a>
+    - <a href="#help">Help</a>
+    - <a href="#about">About</a>
 
 <br>
 
@@ -87,7 +87,7 @@ How to install the VSTO version
 ## Functionality
 This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed below is the detailed functionality of this application and its components.  
 
-<a id="user-content-select-markup-color" class="anchor" href="#ribbon-group-select-markup-color" aria-hidden="true"> </a>
+<a id="user-content-select-markup-color" class="anchor" href="#select-markup-color" aria-hidden="true"> </a>
 ###	Select Markup Color (Group)
 
 #### color Palette (Button)
@@ -99,7 +99,7 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 #### Update (Button)
 * ...
 
-<a id="user-content-insert-revision" class="anchor" href="#ribbon-group-insert-revision" aria-hidden="true"> </a>
+<a id="user-content-insert-revision" class="anchor" href="#insert-revision" aria-hidden="true"> </a>
 ###	Insert Revision (Group)
 
 #### Character (Textbox)
@@ -108,7 +108,7 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 #### Triangle (Button)
 * ...
 
-<a id="user-content-insert-markup" class="anchor" href="#ribbon-group-insert-markup" aria-hidden="true"> </a>
+<a id="user-content-insert-markup" class="anchor" href="#insert-markup" aria-hidden="true"> </a>
 ###	Insert Markup (Group)
 
 #### Cloud (Button)
@@ -123,7 +123,7 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 #### Hatch (Button)
 * ...
 
-<a id="user-content-insert-cloud-part" class="anchor" href="#ribbon-group-insert-cloud-part" aria-hidden="true"> </a>
+<a id="user-content-insert-cloud-part" class="anchor" href="#insert-cloud-part" aria-hidden="true"> </a>
 ###	Insert Cloud Part (Group)
 
 #### Left (Button)
@@ -138,7 +138,7 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 #### Bottom (Button)
 * ...
 
-<a id="user-content-edit-markup" class="anchor" href="#ribbon-group-edit-markup" aria-hidden="true"> </a>
+<a id="user-content-edit-markup" class="anchor" href="#edit-markup" aria-hidden="true"> </a>
 ###	Edit Markup (Group)
 
 #### Group (Menu)
@@ -151,7 +151,7 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 * ...
 
 
-<a id="user-content-help" class="anchor" href="#ribbon-group-help" aria-hidden="true"> </a>
+<a id="user-content-help" class="anchor" href="#help" aria-hidden="true"> </a>
 ###	Help (Group)
 
 #### How To… (Button)
@@ -200,7 +200,7 @@ VBA
     ThisWorkbook.CustomDocumentProperties.Item("App_ReleaseDate").Delete
     ```
 
-<a id="user-content-about" class="anchor" href="#ribbon-group-about" aria-hidden="true"> </a>
+<a id="user-content-about" class="anchor" href="#about" aria-hidden="true"> </a>
 ###	About (Group)
 <h1 align="left">
   <img src="Images/ReadMe/ribbon.group.about.png" />
