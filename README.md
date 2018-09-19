@@ -42,8 +42,6 @@ The most complete version is C#.
 ## Install
 Instructions for installation of VBA and VSTO versions.
 
->TODO: deploy to Microsoft Office store
-
 ### VBA
 How to install the VBA version
 1. Download the VBA Add-In file [![download VBA](https://img.shields.io/badge/download-VBA-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/raw/master/VBA/Markup.xlam?raw=true "Download the VBA Add-In").
