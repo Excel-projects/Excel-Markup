@@ -94,13 +94,13 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 </h1>
 
 #### Color Palette (Button)
-* ...
+* Select a color for the Markup shapes
 
 #### Standard Colors (Dropdown)
-* ...
+* Select a standard color for the Markup shapes from the list
 
 #### Update (Button)
-* ...
+* Update the color for the selected shapes
 
 <a id="user-content-insert-revision" class="anchor" href="#insert-revision" aria-hidden="true"> </a>
 ###	Insert Revision (Group)
@@ -109,10 +109,10 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 </h1>
 
 #### Character (Textbox)
-* ...
+* This character will appear in the middle of the triangle
 
 #### Triangle (Button)
-* ...
+* Insert a revision triangle in the area of the selected cell(s)
 
 <a id="user-content-insert-markup" class="anchor" href="#insert-markup" aria-hidden="true"> </a>
 ###	Insert Markup (Group)
@@ -121,16 +121,16 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 </h1>
 
 #### Cloud (Button)
-* ...
+* Insert a cloud in the area of the selected cell(s)
 
 #### Cloud Inverted (Button)
-* ...
+* Insert an inverted cloud in the area of the selected cell(s)
 
 #### Cloud & Hatch (Button)
-* ...
+* Insert a cloud with hatching in the area of the selected cell(s)
 
 #### Hatch (Button)
-* ...
+* Insert hatching in the area of the selected cell(s)
 
 <a id="user-content-insert-cloud-part" class="anchor" href="#insert-cloud-part" aria-hidden="true"> </a>
 ###	Insert Cloud Part (Group)
@@ -139,16 +139,16 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 </h1>
 
 #### Left (Button)
-* ...
+* Insert a cloud part on the Left of the selected cell(s)
 
 #### Right (Button)
-* ...
+* Insert a cloud part on the Right of the selected cell(s)
 
 #### Top (Button)
-* ...
+* Insert a cloud part on the Top of the selected cell(s)
 
 #### Bottom (Button)
-* ...
+* Insert a cloud part on the Bottom of the selected cell(s)
 
 <a id="user-content-edit-markup" class="anchor" href="#edit-markup" aria-hidden="true"> </a>
 ###	Edit Markup (Group)
@@ -157,13 +157,13 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 </h1>
 
 #### Group (Menu)
-* ...
+* Join objects together to move and format them as if they were a single object
 
 #### Remove Last (Button)
-* ...
+* Remove the last shape created
 
 #### Remove All (Button)
-* ...
+* Remove all Markup shapes from the active worksheet
 
 
 <a id="user-content-help" class="anchor" href="#help" aria-hidden="true"> </a>
