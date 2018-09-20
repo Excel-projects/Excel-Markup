@@ -90,7 +90,7 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 <a id="user-content-select-markup-color" class="anchor" href="#select-markup-color" aria-hidden="true"> </a>
 ###	Select Markup Color (Group)
 
-#### color Palette (Button)
+#### Color Palette (Button)
 * ...
 
 #### Standard Colors (Dropdown)
