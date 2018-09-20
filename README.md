@@ -89,6 +89,9 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 
 <a id="user-content-select-markup-color" class="anchor" href="#select-markup-color" aria-hidden="true"> </a>
 ###	Select Markup Color (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.selectmarkupcolor.png" />
+</h1>
 
 #### Color Palette (Button)
 * ...
@@ -101,6 +104,9 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 
 <a id="user-content-insert-revision" class="anchor" href="#insert-revision" aria-hidden="true"> </a>
 ###	Insert Revision (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.insertrevision.png" />
+</h1>
 
 #### Character (Textbox)
 * ...
@@ -110,6 +116,9 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 
 <a id="user-content-insert-markup" class="anchor" href="#insert-markup" aria-hidden="true"> </a>
 ###	Insert Markup (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.insertmarkup.png" />
+</h1>
 
 #### Cloud (Button)
 * ...
@@ -125,6 +134,9 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 
 <a id="user-content-insert-cloud-part" class="anchor" href="#insert-cloud-part" aria-hidden="true"> </a>
 ###	Insert Cloud Part (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.insertcloudpart.png" />
+</h1>
 
 #### Left (Button)
 * ...
@@ -140,6 +152,9 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 
 <a id="user-content-edit-markup" class="anchor" href="#edit-markup" aria-hidden="true"> </a>
 ###	Edit Markup (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.editmarkup.png" />
+</h1>
 
 #### Group (Menu)
 * ...
@@ -153,6 +168,9 @@ This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed 
 
 <a id="user-content-help" class="anchor" href="#help" aria-hidden="true"> </a>
 ###	Help (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.help.png" />
+</h1>
 
 #### How To… (Button)
 * Opens a webpage of the read me documentation
