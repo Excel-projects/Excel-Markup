@@ -8,7 +8,7 @@ There are two common methods of indicating where a revision has changed a drawin
 [![Latest Release](https://img.shields.io/github/release/Office-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Office-projects/Excel-Markup/releases)
 [![Github commits (since latest release)](https://img.shields.io/github/commits-since/Office-projects/Excel-Markup/latest.svg)](https://github.com/Office-projects/Excel-Markup)
 [![GitHub issues](https://img.shields.io/github/issues/Office-projects/Excel-Markup.svg)](https://github.com/Office-projects/Excel-Markup/issues)
-[![Github All Releases](https://img.shields.io/github/downloads/Office-projects/Excel-Markup/total.svg)](https://github.com/Office-projects/Excel-Markup/releases)
+<!--[![Github All Releases](https://img.shields.io/github/downloads/Office-projects/Excel-Markup/total.svg)](https://github.com/Office-projects/Excel-Markup/releases)-->
 
 <h1 align="left">
   <img src="Images/ReadMe/vsto.excel.ribbon.markup.gif" />
