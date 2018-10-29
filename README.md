@@ -5,10 +5,10 @@ There are two common methods of indicating where a revision has changed a drawin
 
 <!--[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/AnthonyDuguid/1.00)-->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE "MIT License Copyright © Anthony Duguid")
-[![Latest Release](https://img.shields.io/github/release/Office-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Office-projects/Excel-Markup/releases)
-[![Github commits (since latest release)](https://img.shields.io/github/commits-since/Office-projects/Excel-Markup/latest.svg)](https://github.com/Office-projects/Excel-Markup/commits/master)
-[![GitHub issues](https://img.shields.io/github/issues/Office-projects/Excel-Markup.svg)](https://github.com/Office-projects/Excel-Markup/issues)
-<!--[![Github All Releases](https://img.shields.io/github/downloads/Office-projects/Excel-Markup/total.svg)](https://github.com/Office-projects/Excel-Markup/releases)-->
+[![Latest Release](https://img.shields.io/github/release/Excel-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Excel-projects/Excel-Markup/releases)
+[![Github commits (since latest release)](https://img.shields.io/github/commits-since/Excel-projects/Excel-Markup/latest.svg)](https://github.com/Excel-projects/Excel-Markup/commits/master)
+[![GitHub issues](https://img.shields.io/github/issues/Excel-projects/Excel-Markup.svg)](https://github.com/Excel-projects/Excel-Markup/issues)
+<!--[![Github All Releases](https://img.shields.io/github/downloads/Excel-projects/Excel-Markup/total.svg)](https://github.com/Excel-projects/Excel-Markup/releases)-->
 
 <h1 align="left">
   <img src="Images/ReadMe/vsto.excel.ribbon.markup.gif" />
@@ -37,14 +37,14 @@ Instructions for installation of VBA and VSTO versions.
 
 ### VBA
 How to install the VBA version
-1. Download the VBA Add-In file [![download VBA](https://img.shields.io/badge/download-VBA-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/raw/master/VBA/Markup.xlam?raw=true "Download the VBA Add-In").
+1. Download the VBA Add-In file [![download VBA](https://img.shields.io/badge/download-VBA-brightgreen.svg)](https://github.com/Excel-projects/Excel-Markup/raw/master/VBA/Markup.xlam?raw=true "Download the VBA Add-In").
 2. Copy the file to the XLSTART folder on your computer. ```%AppData%\Microsoft\Excel\XLSTART\```
 3. Close all open instances of Excel and then launch Excel. The new ribbon should appear.
 
 ### VSTO
 How to install the VSTO version
-1. Download AnthonyDuguid.pfx And Install At Root Level [![download Key](https://img.shields.io/badge/download-Key-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/blob/master/CS/AnthonyDuguid.pfx?raw=true "Download AnthonyDuguid.pfx And Install At Root Level For VSTO")
-2. Download and run the setup.exe file. [![download VSTO](https://img.shields.io/badge/download-VSTO-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/blob/master/CS/publish/setup.exe?raw=true "Download Setup.exe Install File")
+1. Download AnthonyDuguid.pfx And Install At Root Level [![download Key](https://img.shields.io/badge/download-Key-brightgreen.svg)](https://github.com/Excel-projects/Excel-Markup/blob/master/CS/AnthonyDuguid.pfx?raw=true "Download AnthonyDuguid.pfx And Install At Root Level For VSTO")
+2. Download and run the setup.exe file. [![download VSTO](https://img.shields.io/badge/download-VSTO-brightgreen.svg)](https://github.com/Excel-projects/Excel-Markup/blob/master/CS/publish/setup.exe?raw=true "Download Setup.exe Install File")
 
 <br>
 
