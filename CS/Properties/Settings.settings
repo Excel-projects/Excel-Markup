@@ -21,13 +21,13 @@
       <Value Profile="(Default)">C:\Temp</Value>
     </Setting>
     <Setting Name="App_PathReadMe" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://github.com/Office-projects/Excel-Markup/blob/master/README.md</Value>
+      <Value Profile="(Default)">https://github.com/Excel-projects/Excel-Markup/blob/master/README.md</Value>
     </Setting>
     <Setting Name="App_PathNewIssue" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://github.com/Office-projects/Excel-Markup/issues/new</Value>
+      <Value Profile="(Default)">https://github.com/Excel-projects/Excel-Markup/issues/new</Value>
     </Setting>
     <Setting Name="App_ReleaseDate" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">07/31/2017 13:05:00</Value>
+      <Value Profile="(Default)">10/31/2018 13:05:00</Value>
     </Setting>
     <Setting Name="Markup_ShapeLineSpacing" Type="System.Double" Scope="User">
       <Value Profile="(Default)">10</Value>

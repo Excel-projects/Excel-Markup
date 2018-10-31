@@ -622,7 +622,7 @@ namespace Markup.Scripts
                 if (cloudPart != null && hatchArea != null) 
                 {
                     object[] shapes = { cloudPart.Name, hatchArea.Name };
-                    shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
+                    shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes); //.Group();
                     shapeRange.Group();
                     shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                     Properties.Settings.Default.Markup_LastShapeName = shapeRange.Name;
@@ -952,7 +952,7 @@ namespace Markup.Scripts
                     xp = x;
                     yp = y;
                 }
-                shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
+                shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes); //.Group();
                 shapeRange.Group();
                 shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                 cloudLine = Globals.ThisAddIn.Application.ActiveSheet.Shapes(shapeRange.Name);
@@ -1013,7 +1013,7 @@ namespace Markup.Scripts
                 {
                     string shapeName = "Cloud";
                     object[] shapes = { cloudLineBottom.Name, cloudLineTop.Name, cloudLineLeft.Name, cloudLineRight.Name };
-                    shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
+                    shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes); //.Group();
                     shapeRange.Group();
                     shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                     cloudLine = Globals.ThisAddIn.Application.ActiveSheet.Shapes(shapeRange.Name);

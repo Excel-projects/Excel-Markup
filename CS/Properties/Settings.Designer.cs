@@ -12,7 +12,7 @@ namespace Markup.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -91,7 +91,7 @@ namespace Markup.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Office-projects/Excel-Markup/blob/master/README.md")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Excel-projects/Excel-Markup/blob/master/README.md")]
         public string App_PathReadMe {
             get {
                 return ((string)(this["App_PathReadMe"]));
@@ -103,7 +103,7 @@ namespace Markup.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Office-projects/Excel-Markup/issues/new")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/Excel-projects/Excel-Markup/issues/new")]
         public string App_PathNewIssue {
             get {
                 return ((string)(this["App_PathNewIssue"]));
@@ -115,7 +115,7 @@ namespace Markup.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("07/31/2017 13:05:00")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10/31/2018 13:05:00")]
         public global::System.DateTime App_ReleaseDate {
             get {
                 return ((global::System.DateTime)(this["App_ReleaseDate"]));

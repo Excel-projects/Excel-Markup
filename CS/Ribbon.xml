@@ -9,7 +9,7 @@
 				>
 				<group
 					id="grpMarkupColor"
-					label="Select Markup Color"
+					label="Select Color"
 					getImage="GetButtonImage">
 					<button
             id="btnSelectColor"
@@ -79,16 +79,61 @@
 					    id="grpMarkups"
 					    label="Insert Markup"
 					    getImage="GetButtonImage">
-            <button
-              id="btnCloudAll"
-              label="Cloud"
-              onAction="OnAction"
-              getEnabled="GetEnabled"
-              getImage="GetButtonImage"
+
+						<splitButton
+							id="sbnCloudAll"
 							size="large"
-              screentip="Insert Cloud"
-              supertip="Insert a cloud in the area of the selected cell(s)"
-					/>
+						>
+							<button
+								id="btnCloudAll"
+								label="Cloud"
+								onAction="OnAction"
+								getEnabled="GetEnabled"
+								getImage="GetButtonImage"
+								screentip="Insert Cloud"
+								supertip="Insert a cloud in the area of the selected cell(s)"
+					  />
+							<menu
+								id="mnuCloudAll"
+							>
+								<button
+									id="btnCloudPartLeft"
+									label="Left"
+									onAction="OnAction"
+									getEnabled="GetEnabled"
+									getImage="GetButtonImage"
+									screentip="Insert Left Cloud"
+									supertip="Insert a cloud part on the Left of the selected cell(s)"
+								/>
+								<button
+									id="btnCloudPartRight"
+									label="Right"
+									onAction="OnAction"
+									getEnabled="GetEnabled"
+									getImage="GetButtonImage"
+									screentip="Insert Right Cloud"
+									supertip="Insert a cloud part on the Right of the selected cell(s)"
+								/>
+								<button
+									id="btnCloudPartTop"
+									label="Top"
+									onAction="OnAction"
+									getEnabled="GetEnabled"
+									getImage="GetButtonImage"
+									screentip="Insert Top Cloud"
+									supertip="Insert a cloud part on the Top of the selected cell(s)"
+								/>
+								<button
+									id="btnCloudPartBottom"
+									label="Bottom"
+									onAction="OnAction"
+									getEnabled="GetEnabled"
+									getImage="GetButtonImage"
+									screentip="Insert Bottom Cloud"
+									supertip="Insert a cloud part on the Bottom of the selected cell(s)"
+								/>
+							</menu>
+						</splitButton>
             <button
               label="Cloud Inverted"
               id="btnCloudHold"
@@ -120,51 +165,6 @@
               supertip="Insert hatching in the area of the selected cell(s)"
 					/>
 				</group>
-					<group
-							id="grpMarkupPart"
-							label="Insert Cloud Part"
-							getImage="GetButtonImage">
-            <button
-              id="btnCloudPartLeft"
-              label="Left"
-              onAction="OnAction"
-              getEnabled="GetEnabled"
-              getImage="GetButtonImage"
-							size="large"
-              screentip="Insert Left Cloud"
-              supertip="Insert a cloud part on the Left of the selected cell(s)"
-					/>
-            <button
-              id="btnCloudPartRight"
-              label="Right"
-              onAction="OnAction"
-              getEnabled="GetEnabled"
-              getImage="GetButtonImage"
-							size="large"
-              screentip="Insert Right Cloud"
-              supertip="Insert a cloud part on the Right of the selected cell(s)"
-					/>
-            <button
-              id="btnCloudPartTop"
-              label="Top"
-              onAction="OnAction"
-              getEnabled="GetEnabled"
-              getImage="GetButtonImage"
-							size="large"
-              screentip="Insert Top Cloud"
-              supertip="Insert a cloud part on the Top of the selected cell(s)"
-					/>
-            <button
-              id="btnCloudPartBottom"
-              label="Bottom"
-              onAction="OnAction"
-              getEnabled="GetEnabled"
-              getImage="GetButtonImage"
-							size="large"
-              screentip="Insert Bottom Cloud"
-              supertip="Insert a cloud part on the Bottom of the selected cell(s)"
-					/>
-					</group>
 					<group
 							id="grpMarkupEdit"
 							label="Edit Markup"

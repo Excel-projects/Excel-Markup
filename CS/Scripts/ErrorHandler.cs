@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -48,10 +51,20 @@ namespace Markup.Scripts
         {
             try
             {
-                System.Diagnostics.StackFrame sf = new System.Diagnostics.StackFrame(1);
-                System.Reflection.MethodBase caller = sf.GetMethod();
-                string currentProcedure = (caller.Name).Trim();
-                log.Info("[PROCEDURE]=|" + currentProcedure + "|[USER NAME]=|" + Environment.UserName + "|[MACHINE NAME]=|" + Environment.MachineName);
+                // gather context
+                var sf = new System.Diagnostics.StackFrame(1);
+                var caller = sf.GetMethod();
+                var currentProcedure = caller.Name.Trim();
+
+                // handle log record
+                var logMessage = string.Concat(new Dictionary<string, string>
+                {
+                    ["PROCEDURE"] = currentProcedure,
+                    ["USER NAME"] = Environment.UserName,
+                    ["MACHINE NAME"] = Environment.MachineName
+                }.Select(x => $"[{x.Key}]=|{x.Value}|"));
+                log.Info(logMessage);
+
             }
             catch (Exception ex)
             {
@@ -73,22 +86,38 @@ namespace Markup.Scripts
         /// <remarks></remarks>
         public static void DisplayMessage(Exception ex, Boolean isSilent = false)
         {
-            System.Diagnostics.StackFrame sf = new System.Diagnostics.StackFrame(1);
-            System.Reflection.MethodBase caller = sf.GetMethod();
-            string currentProcedure = (caller.Name).Trim();
-            string currentFileName = AssemblyInfo.GetCurrentFileName();
-            string errorMessageDescription = ex.ToString();
-            errorMessageDescription = System.Text.RegularExpressions.Regex.Replace(errorMessageDescription, @"\r\n+", " "); //the carriage returns were messing up my log file
-            string msg = "Contact your system administrator. A record has been created in the log file." + Environment.NewLine;
-            msg += "Procedure: " + currentProcedure + Environment.NewLine;
-            msg += "Description: " + ex.ToString() + Environment.NewLine;
-            log.Error("[PROCEDURE]=|" + currentProcedure + "|[USER NAME]=|" + Environment.UserName + "|[MACHINE NAME]=|" + Environment.MachineName + "|[FILE NAME]=|" + currentFileName + "|[DESCRIPTION]=|" + errorMessageDescription);
+            // gather context
+            var sf = new System.Diagnostics.StackFrame(1);
+            var caller = sf.GetMethod();
+            var errorDescription = ex.ToString().Replace("\r\n", " "); // the carriage returns were messing up my log file
+            var currentProcedure = caller.Name.Trim();
+            var currentFileName = AssemblyInfo.GetCurrentFileName();
+
+            // handle log record
+            var logMessage = string.Concat(new Dictionary<string, string>
+            {
+                ["PROCEDURE"] = currentProcedure,
+                ["USER NAME"] = Environment.UserName,
+                ["MACHINE NAME"] = Environment.MachineName,
+                ["FILE NAME"] = currentFileName,
+                ["DESCRIPTION"] = errorDescription,
+            }.Select(x => $"[{x.Key}]=|{x.Value}|"));
+            log.Error(logMessage);
+
+            // format message
+            var userMessage = new StringBuilder()
+                .AppendLine("Contact your system administrator. A record has been created in the log file.")
+                .AppendLine("Procedure: " + currentProcedure)
+                .AppendLine("Description: " + errorDescription)
+                .ToString();
+
+            // handle message
             if (isSilent == false)
             {
-                MessageBox.Show(msg, "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(userMessage, "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    
+
         /// <summary> 
         /// Check to see if there is an active document
         /// </summary>
