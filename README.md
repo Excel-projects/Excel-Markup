@@ -1,21 +1,14 @@
-<html>
-<head>
-</head>
-
 <img align="left" src="Images/ReadMe/header3.png">
 
-[![Join the chat at https://gitter.im/Excel-Markup](https://badges.gitter.im/Excel-Markup/Lobby.svg)](https://gitter.im/Excel-Markup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE "MIT License Copyright © Anthony Duguid")
-[![Latest Release](https://img.shields.io/github/release/Office-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Office-projects/Excel-Markup/releases)
-[![Github commits (since latest release)](https://img.shields.io/github/commits-since/Office-projects/Excel-Markup/latest.svg)](https://github.com/Office-projects/Excel-Markup)
-
-The most complete version is C#. 
-<a href="https://github.com/Office-projects/Excel-Markup/issues" target="_blank">
- <img alt="Issues" src="https://img.shields.io/github/issues/Office-projects/Excel-Markup.svg" />
-</a>
-
 This Add-In is used for marking up Excel files with revisions.
-There are two common methods of indicating where a revision has changed a drawing that contains a system diagram. The first is the cloud method, were each change is enclosed by a cloud shape.  The second method involves placing a triangle with the revision number next to each effected portion of the drawing.  The cloud method indicates changes from the most recent revision only, whereas the second method indicates all revisions to the drawing because all of the previous revision circles remain on the drawing.
+There are two common methods of indicating where a revision has changed a drawing that contains a system diagram. The first is the cloud method, were each change is enclosed by a cloud shape.  The second method involves placing a triangle with the revision number next to each effected portion of the drawing.  The cloud method indicates changes from the most recent revision only, whereas the second method indicates all revisions to the drawing because all of the previous revision circles remain on the drawing. The most complete version is C#. 
+
+<!--[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/AnthonyDuguid/1.00)-->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE "MIT License Copyright © Anthony Duguid")
+[![Latest Release](https://img.shields.io/github/release/Excel-projects/Excel-Markup.svg?label=latest%20release)](https://github.com/Excel-projects/Excel-Markup/releases)
+[![Github commits (since latest release)](https://img.shields.io/github/commits-since/Excel-projects/Excel-Markup/latest.svg)](https://github.com/Excel-projects/Excel-Markup/commits/master)
+[![GitHub issues](https://img.shields.io/github/issues/Excel-projects/Excel-Markup.svg)](https://github.com/Excel-projects/Excel-Markup/issues)
+<!--[![Github All Releases](https://img.shields.io/github/downloads/Excel-projects/Excel-Markup/total.svg)](https://github.com/Excel-projects/Excel-Markup/releases)-->
 
 <h1 align="left">
   <img src="Images/ReadMe/vsto.excel.ribbon.markup.gif" />
@@ -28,6 +21,11 @@ There are two common methods of indicating where a revision has changed a drawin
 - <a href="#dependencies">Dependencies</a>
 - <a href="#glossary-of-terms">Glossary of Terms</a>
 - <a href="#functionality">Functionality</a> 
+    - <a href="#select-markup-color">Select Markup Color</a>
+    - <a href="#insert-revision">Insert Revision</a>
+    - <a href="#insert-markup">Insert Markup</a>
+    - <a href="#insert-cloud-part">Insert Cloud Part</a>
+    - <a href="#edit-markup">Edit Markup</a>
     - <a href="#help">Help</a>
     - <a href="#about">About</a>
 
@@ -37,18 +35,16 @@ There are two common methods of indicating where a revision has changed a drawin
 ## Install
 Instructions for installation of VBA and VSTO versions.
 
->TODO: deploy to Microsoft Office store
-
 ### VBA
 How to install the VBA version
-1. Download the VBA Add-In file [![download VBA](https://img.shields.io/badge/download-VBA-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/raw/master/VBA/Markup.xlam?raw=true "Download the VBA Add-In").
+1. Download the VBA Add-In file [![download VBA](https://img.shields.io/badge/download-VBA-brightgreen.svg)](https://github.com/Excel-projects/Excel-Markup/raw/master/VBA/Markup.xlam?raw=true "Download the VBA Add-In").
 2. Copy the file to the XLSTART folder on your computer. ```%AppData%\Microsoft\Excel\XLSTART\```
 3. Close all open instances of Excel and then launch Excel. The new ribbon should appear.
 
 ### VSTO
 How to install the VSTO version
-1. Download AnthonyDuguid.pfx And Install At Root Level [![download Key](https://img.shields.io/badge/download-Key-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/blob/master/CS/AnthonyDuguid.pfx?raw=true "Download AnthonyDuguid.pfx And Install At Root Level For VSTO")
-2. Download and run the setup.exe file. [![download VSTO](https://img.shields.io/badge/download-VSTO-brightgreen.svg)](https://github.com/Office-projects/Excel-Markup/blob/master/CS/publish/setup.exe?raw=true "Download Setup.exe Install File")
+1. Download AnthonyDuguid.pfx And Install At Root Level [![download Key](https://img.shields.io/badge/download-Key-brightgreen.svg)](https://github.com/Excel-projects/Excel-Markup/blob/master/CS/AnthonyDuguid.pfx?raw=true "Download AnthonyDuguid.pfx And Install At Root Level For VSTO")
+2. Download and run the setup.exe file. [![download VSTO](https://img.shields.io/badge/download-VSTO-brightgreen.svg)](https://github.com/Excel-projects/Excel-Markup/blob/master/CS/publish/setup.exe?raw=true "Download Setup.exe Install File")
 
 <br>
 
@@ -57,7 +53,7 @@ How to install the VSTO version
 |Software                                   |Dependency                 |Project                    |
 |:------------------------------------------|:--------------------------|:--------------------------|
 |[Microsoft Visual Studio Community 2017](https://www.visualstudio.com/vs/whatsnew/)|Solution|VSTO|
-|[Microsoft Office Developer Tools](https://blogs.msdn.microsoft.com/visualstudio/2015/11/23/latest-microsoft-office-developer-tools-for-visual-studio-2015/)|Solution|VSTO|
+|[Microsoft Office Developer Tools](https://visualstudio.microsoft.com/vs/features/office-tools/)|Solution|VSTO|
 |[Microsoft Excel 2010 (or later)](https://www.microsoft.com/en-au/software-download/office)|Project|VBA, VSTO|
 |[Visual Basic for Applications](https://msdn.microsoft.com/en-us/vba/vba-language-reference)|Code|VBA|
 |[Extensible Markup Language (XML)](https://www.rondebruin.nl/win/s2/win001.htm)|Ribbon|VBA, VSTO|
@@ -88,28 +84,97 @@ How to install the VSTO version
 ## Functionality
 This Excel ribbon is inserted after the “Home” tab when Excel opens. Listed below is the detailed functionality of this application and its components.  
 
+<a id="user-content-select-markup-color" class="anchor" href="#select-markup-color" aria-hidden="true"> </a>
+###	Select Markup Color (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.selectmarkupcolor.png" />
+</h1>
 
-<a id="user-content-clipboard" class="anchor" href="#clipboard" aria-hidden="true"> </a>
-###	Clipboard (Group)
+#### Color Palette (Button)
+* Select a color for the Markup shapes
 
-<a id="user-content-paste" class="anchor" href="#paste" aria-hidden="true"> </a>
-####	Paste (Menu)
-* Paste the contents of the clipboard
+#### Standard Colors (Dropdown)
+* Select a standard color for the Markup shapes from the list
 
+#### Update (Button)
+* Update the color for the selected shapes
+
+<a id="user-content-insert-revision" class="anchor" href="#insert-revision" aria-hidden="true"> </a>
+###	Insert Revision (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.insertrevision.png" />
+</h1>
+
+#### Character (Textbox)
+* This character will appear in the middle of the triangle
+
+#### Triangle (Button)
+* Insert a revision triangle in the area of the selected cell(s)
+
+<a id="user-content-insert-markup" class="anchor" href="#insert-markup" aria-hidden="true"> </a>
+###	Insert Markup (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.insertmarkup.png" />
+</h1>
+
+#### Cloud (Button)
+* Insert a cloud in the area of the selected cell(s)
+
+#### Cloud Inverted (Button)
+* Insert an inverted cloud in the area of the selected cell(s)
+
+#### Cloud & Hatch (Button)
+* Insert a cloud with hatching in the area of the selected cell(s)
+
+#### Hatch (Button)
+* Insert hatching in the area of the selected cell(s)
+
+<a id="user-content-insert-cloud-part" class="anchor" href="#insert-cloud-part" aria-hidden="true"> </a>
+###	Insert Cloud Part (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.insertcloudpart.png" />
+</h1>
+
+#### Left (Button)
+* Insert a cloud part on the Left of the selected cell(s)
+
+#### Right (Button)
+* Insert a cloud part on the Right of the selected cell(s)
+
+#### Top (Button)
+* Insert a cloud part on the Top of the selected cell(s)
+
+#### Bottom (Button)
+* Insert a cloud part on the Bottom of the selected cell(s)
+
+<a id="user-content-edit-markup" class="anchor" href="#edit-markup" aria-hidden="true"> </a>
+###	Edit Markup (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.editmarkup.png" />
+</h1>
+
+#### Group (Menu)
+* Join objects together to move and format them as if they were a single object
+
+#### Remove Last (Button)
+* Remove the last shape created
+
+#### Remove All (Button)
+* Remove all Markup shapes from the active worksheet
 
 
 <a id="user-content-help" class="anchor" href="#help" aria-hidden="true"> </a>
 ###	Help (Group)
+<h1 align="left">
+  <img src="Images/ReadMe/ribbon.group.help.png" />
+</h1>
 
-<a id="user-content-how-to" class="anchor" href="#how-to" aria-hidden="true"> </a>
 #### How To… (Button)
 * Opens a webpage of the read me documentation
 
-<a id="user-content-api-doc" class="anchor" href="#api-doc" aria-hidden="true"> </a>
 #### Report Issue (Button)
 * Opens a page to create a new issue for the product
 
-<a id="user-content-settings" class="anchor" href="#settings" aria-hidden="true"> </a>
 #### Add-In Settings (Button)
 
 <kbd>
@@ -156,17 +221,11 @@ VBA
   <img src="Images/ReadMe/ribbon.group.about.png" />
 </h1>
 
-<a id="user-content-description" class="anchor" href="#description" aria-hidden="true"> </a>
 #### Add-in Name (Label)
 * The application name with the version
 
-<a id="user-content-install-date" class="anchor" href="#install-date" aria-hidden="true"> </a>
 #### Release Date (Label)
 * The release date of the application
 
-<a id="user-content-copyright" class="anchor" href="#copyright" aria-hidden="true"> </a>
 #### Copyright (Label)
 * The author’s name
-
-</body>
-</html>
