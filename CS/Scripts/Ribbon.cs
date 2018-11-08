@@ -21,6 +21,10 @@ namespace Markup.Scripts
         /// Used to reference the ribbon object
         /// </summary>
         public static Ribbon ribbonref;
+        /// <summary>
+        /// line number is used to prevent grouping failure for naming shapes
+        /// </summary>
+        public static int LineNbr;
 
 		#region | Task Panes |
 
@@ -323,6 +327,7 @@ namespace Markup.Scripts
         {
             try
             {
+                LineNbr = 0;
                 switch (control.Id)
                 {
                     case "btnSelectColor":
@@ -473,7 +478,7 @@ namespace Markup.Scripts
                     return;
                 }
                 ErrorHandler.CreateLogRecord();
-                string shapeName = "RevTri";
+                string shapeName = AssemblyInfo.Title.ToLower();
                 Single[,] triArray = new Single[4, 2];
                 double x = 0;
                 double y = Globals.ThisAddIn.Application.Selection.Top;
@@ -493,6 +498,7 @@ namespace Markup.Scripts
                 {
                     x = selLeft;
                 }
+
                 triArray[0, 0] = Convert.ToSingle(x + w / 2);
                 triArray[0, 1] = Convert.ToSingle(y);
                 triArray[1, 0] = Convert.ToSingle(x);
@@ -501,9 +507,12 @@ namespace Markup.Scripts
                 triArray[2, 1] = Convert.ToSingle(y + h);
                 triArray[3, 0] = Convert.ToSingle(x + w / 2);
                 triArray[3, 1] = Convert.ToSingle(y);
+
                 shpTriangle = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddPolyline(triArray);
-                shpTriangle.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                shpTriangle.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + "1";
                 shpTriangle.Line.Weight = Convert.ToSingle(1.5);
+
+                //add a textbox to the triangle
                 txtTriangle = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, Convert.ToSingle(x), Convert.ToSingle(y + h * 0.2), Convert.ToSingle(w), Convert.ToSingle(h * 0.8));
                 txtTriangle.Select();
                 txtTriangle.TextEffect.Text = Properties.Settings.Default.Markup_TriangleRevisionCharacter;
@@ -516,11 +525,13 @@ namespace Markup.Scripts
                 txtTriangle.TextFrame.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                 txtTriangle.TextFrame.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 txtTriangle.TextFrame.AutoSize = true;
-                txtTriangle.Name = "txt" + shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                txtTriangle.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + "2";
+
+                //group both shapes together
                 object[] shapes = { shpTriangle.Name, txtTriangle.Name };
                 shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
                 shapeRange.Group();
-                shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                shapeRange.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + "3";
                 shpTriangle.Select();
                 Globals.ThisAddIn.Application.Selection.Interior.Pattern = Excel.XlPattern.xlPatternNone;
                 SetLineColor();
@@ -558,7 +569,7 @@ namespace Markup.Scripts
                     return;
                 }
                 ErrorHandler.CreateLogRecord();
-                string shapeName = "CloudHold";
+                string shapeName = AssemblyInfo.Title.ToLower();
                 double x = Globals.ThisAddIn.Application.Selection.Left;
                 double y = Globals.ThisAddIn.Application.Selection.Top;
                 double h = Globals.ThisAddIn.Application.Selection.Height;
@@ -577,7 +588,7 @@ namespace Markup.Scripts
                     object[] shapes = { cloudLineBottom.Name, cloudLineTop.Name, cloudLineLeft.Name, cloudLineRight.Name };
                     shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
                     shapeRange.Group();
-                    shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                    shapeRange.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                     Properties.Settings.Default.Markup_LastShapeName = shapeRange.Name;
                 }
             }
@@ -612,7 +623,7 @@ namespace Markup.Scripts
                     return;
                 }
                 ErrorHandler.CreateLogRecord();
-                string shapeName = "CloudHatch";
+                string shapeName = AssemblyInfo.Title.ToLower();
                 double x = Globals.ThisAddIn.Application.Selection.Left;
                 double y = Globals.ThisAddIn.Application.Selection.Top;
                 double h = Globals.ThisAddIn.Application.Selection.Height;
@@ -624,7 +635,7 @@ namespace Markup.Scripts
                     object[] shapes = { cloudPart.Name, hatchArea.Name };
                     shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes); //.Group();
                     shapeRange.Group();
-                    shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                    shapeRange.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                     Properties.Settings.Default.Markup_LastShapeName = shapeRange.Name;
                     Marshal.FinalReleaseComObject(cloudPart);
                     Marshal.FinalReleaseComObject(hatchArea);
@@ -765,7 +776,7 @@ namespace Markup.Scripts
                         if (shp.Type == Microsoft.Office.Core.MsoShapeType.msoGroup || shp.Type == Microsoft.Office.Core.MsoShapeType.msoLine || shp.Type == Microsoft.Office.Core.MsoShapeType.msoFreeform)
                         {
                             string s = shp.Name;
-                            if (s.Contains("RevTri") || s.Contains("Cloud") || s.Contains("AreaHatch"))
+                            if (s.Contains(AssemblyInfo.Title.ToLower()))
                             {
                                 shp.Delete();
                             }
@@ -869,7 +880,7 @@ namespace Markup.Scripts
             Excel.Shape cloudArc = null;
             try
             {
-                string shapeName = "CloudArc";
+                string shapeName = AssemblyInfo.Title.ToLower();
                 int i = 0;
                 double angle = 60;
                 double segments = angle / 10;
@@ -897,7 +908,8 @@ namespace Markup.Scripts
                 arcArray[i, 1] = Convert.ToSingle(y2);
                 cloudArc = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddPolyline(arcArray);
                 cloudArc.Select();
-                cloudArc.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                cloudArc.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + LineNbr.ToString();
+                LineNbr += 1;
                 Globals.ThisAddIn.Application.Selection.Interior.Pattern = Excel.Constants.xlNone;
                 SetLineColor();
                 return cloudArc;
@@ -927,6 +939,7 @@ namespace Markup.Scripts
             Excel.ShapeRange shapeRange = null;
             try
             {
+                string shapeName = AssemblyInfo.Title.ToLower();
                 double length = Properties.Settings.Default.Markup_ShapeLineSpacing;
                 int i = 0;
                 double x = 0;
@@ -941,7 +954,6 @@ namespace Markup.Scripts
                 double deltay = (dy / segments);
                 double xp = x1;
                 double yp = y1;
-                string shapeName = "CloudLine";
                 object[] shapes = new object[Convert.ToInt32(segments)];
                 for (i = 1; i <= Convert.ToInt32(segments); i++)
                 {
@@ -954,7 +966,8 @@ namespace Markup.Scripts
                 }
                 shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes); //.Group();
                 shapeRange.Group();
-                shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                shapeRange.Name = shapeName + new string(' ', 1)  + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + LineNbr.ToString();
+                LineNbr += 1;
                 cloudLine = Globals.ThisAddIn.Application.ActiveSheet.Shapes(shapeRange.Name);
                 Properties.Settings.Default.Markup_LastShapeName = shapeRange.Name;
                 return cloudLine;
@@ -1011,11 +1024,11 @@ namespace Markup.Scripts
 
                 if (cloudPart == "ALL" && cloudLineBottom != null && cloudLineTop != null && cloudLineLeft != null && cloudLineRight != null)
                 {
-                    string shapeName = "Cloud";
+                    string shapeName = AssemblyInfo.Title.ToLower();
                     object[] shapes = { cloudLineBottom.Name, cloudLineTop.Name, cloudLineLeft.Name, cloudLineRight.Name };
                     shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes); //.Group();
                     shapeRange.Group();
-                    shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                    shapeRange.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                     cloudLine = Globals.ThisAddIn.Application.ActiveSheet.Shapes(shapeRange.Name);
                     Properties.Settings.Default.Markup_LastShapeName = shapeRange.Name;
                     return cloudLine;
@@ -1055,8 +1068,8 @@ namespace Markup.Scripts
         /// <remarks></remarks>
         public Excel.Shape CreateHatchArea(double x, double y, double h, double w)
         {
-            string shapeName = "AreaHatch";
-			double length = Properties.Settings.Default.Markup_ShapeLineSpacing;
+            string shapeName = AssemblyInfo.Title.ToLower();
+            double length = Properties.Settings.Default.Markup_ShapeLineSpacing;
 			double xx1 = 0;
             double yy1 = 0;
             double xx2 = 0;
@@ -1110,10 +1123,11 @@ namespace Markup.Scripts
                         }
                         hatchLine1 = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddLine(Convert.ToSingle(xx1), Convert.ToSingle(yy1), Convert.ToSingle(xx2), Convert.ToSingle(yy2));
                         hatchLine1.Select();
-                        hatchLine1.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                        hatchLine1.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + LineNbr.ToString();
                         shapesList.Add(hatchLine1.Name);
                         SetLineColor();
                         xsp = xsp + length;
+                        LineNbr += 1;
                     }
                 }
                 else
@@ -1146,16 +1160,17 @@ namespace Markup.Scripts
                         }
                         hatchLine2 = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddLine(Convert.ToSingle(xx1), Convert.ToSingle(yy1), Convert.ToSingle(xx2), Convert.ToSingle(yy2));
                         hatchLine2.Select();
-                        hatchLine2.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                        hatchLine2.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat) + LineNbr.ToString();
                         shapesList.Add(hatchLine2.Name);
                         SetLineColor();
                         ysp = ysp + length;
+                        LineNbr += 1;
                     }
                 }
                 object[] shapes = shapesList.ToArray();
                 shapeRange = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(shapes);
                 shapeRange.Group();
-                shapeRange.Name = shapeName + AddSpaces(1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
+                shapeRange.Name = shapeName + new string(' ', 1) + DateTime.Now.ToString(Properties.Settings.Default.Markup_ShapeDateFormat);
                 hatchArea = Globals.ThisAddIn.Application.ActiveSheet.Shapes(shapeRange.Name);
                 Properties.Settings.Default.Markup_LastShapeName = shapeRange.Name;
                 return hatchArea;
@@ -1225,28 +1240,6 @@ namespace Markup.Scripts
             {
                 ErrorHandler.DisplayMessage(ex);
                 return System.Drawing.Color.Black;
-
-            }
-        }
-
-        /// <summary> 
-        /// Creates x number of spaces to use in string variables
-        /// </summary>
-        /// <param name="numberOfSpaces">Represents the number of spaces to add to a string </param>
-        /// <returns>A method that returns a string of spaces </returns> 
-        /// <remarks></remarks>
-        public string AddSpaces(int numberOfSpaces = 1)
-        {
-            try
-            {
-                string myString = string.Empty;
-                myString = myString.PadRight(numberOfSpaces);
-                return myString;
-            }
-
-            catch (Exception)
-            {
-                return " ";
 
             }
         }

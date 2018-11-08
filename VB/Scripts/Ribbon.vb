@@ -275,13 +275,12 @@ Namespace Scripts
                     triArray(1, 1) = y + h
                     triArray(2, 0) = x + w
                     triArray(2, 1) = y + h
-                    triArray(3, 0) = CSng(x + w / 2)    ' Last point has same coordinates as first
+                    triArray(3, 0) = CSng(x + w / 2)
                     triArray(3, 1) = y
+
                     Dim tri As String = Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddPolyline(triArray).Name
                     Globals.ThisAddIn.Application.ActiveSheet.Shapes(tri).Line.Weight = 1.5 'reset the line weight of the triangle
                     Globals.ThisAddIn.Application.ActiveSheet.Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, CSng(x), CSng(y + h * 0.2), CSng(w), CSng(h * 0.8)).Select() 'make the textbox wider
-                    'Dim tb As String = Globals.ThisAddIn.Application.Selection.Name
-                    My.Settings.Markup_TriangleRevisionCharacter = InputBox("Please enter a revision.", "Revision Triangle", My.Settings.Markup_TriangleRevisionCharacter)
                     Globals.ThisAddIn.Application.Selection.Characters.Text = My.Settings.Markup_TriangleRevisionCharacter
                     Globals.ThisAddIn.Application.Selection.Font.Color = My.Settings.Markup_ShapeLineColor
                     Globals.ThisAddIn.Application.Selection.Font.Size = f '* 0.8 'may want to make this smaller
@@ -291,7 +290,8 @@ Namespace Scripts
                     Globals.ThisAddIn.Application.Selection.RoundedCorners = False
                     Globals.ThisAddIn.Application.Selection.HorizontalAlignment = Excel.Constants.xlCenter
                     Globals.ThisAddIn.Application.Selection.VerticalAlignment = Excel.Constants.xlCenter
-                    Globals.ThisAddIn.Application.Selection.AutoSize = True 'autosize the text in the triangle
+                    Globals.ThisAddIn.Application.Selection.AutoSize = True
+
                     Dim ShapeLastCnt As Integer = Globals.ThisAddIn.Application.ActiveSheet.Shapes.Count
                     CreateShapeGroup(ShapeLastCnt, ShapeFirstCnt)
                     'Globals.ThisAddIn.Application.ActiveSheet.Shapes.Range(Range(tri, tb)).Group.Select()

@@ -51,7 +51,7 @@
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>Excel Addin Markup</ProductName>
     <PublisherName>Anthony Duguid</PublisherName>
-    <SupportUrl />
+    <SupportUrl>https://github.com/Excel-projects/Excel-Markup</SupportUrl>
     <FriendlyName>Excel Addin Markup</FriendlyName>
     <OfficeApplicationDescription />
     <LoadBehavior>3</LoadBehavior>
