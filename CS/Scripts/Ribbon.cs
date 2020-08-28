@@ -9,62 +9,31 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Markup.Scripts
 {
-    /// <summary> 
-    /// Class for the ribbon procedures
-    /// </summary>
     [ComVisible(true)]
     public class Ribbon : Office.IRibbonExtensibility
     {
         private Office.IRibbonUI ribbon;
-
-        /// <summary>
-        /// Used to reference the ribbon object
-        /// </summary>
         public static Ribbon ribbonref;
-        /// <summary>
-        /// line number is used to prevent grouping failure for naming shapes
-        /// </summary>
         public static int LineNbr;
 
 		#region | Task Panes |
 
-		/// <summary>
-		/// Settings TaskPane
-		/// </summary>
 		public TaskPane.Settings mySettings;
-
-        /// <summary>
-        /// Settings Custom Task Pane
-        /// </summary>
         public Microsoft.Office.Tools.CustomTaskPane myTaskPaneSettings;
 
 		#endregion
 
         #region | Ribbon Events |
 
-		/// <summary> 
-		/// The Clouds ribbon
-		/// </summary>
 		public Ribbon()
         {
         }
 
-        /// <summary> 
-        /// Loads the XML markup, either from an XML customization file or from XML markup embedded in the procedure, that customizes the Ribbon user interface.
-        /// </summary>
-        /// <param name="ribbonID">Represents the XML customization file </param>
-        /// <returns>A method that returns a bitmap image for the control id. </returns> 
-        /// <remarks></remarks>
         public string GetCustomUI(string ribbonID)
         {
             return GetResourceText("Markup.Ribbon.xml");
         }
 
-		/// <summary>
-		/// Called by the GetCustomUI method to obtain the contents of the Ribbon XML file.
-		/// </summary>
-		/// <param name="resourceName">name of  the XML file</param>
-		/// <returns>the contents of the XML file</returns>
 		private static string GetResourceText(string resourceName)
         {
             Assembly asm = Assembly.GetExecutingAssembly();
@@ -85,11 +54,6 @@ namespace Markup.Scripts
             return null;
         }
 
-        /// <summary> 
-        /// loads the ribbon UI and creates a log record
-        /// </summary>
-        /// <param name="ribbonUI">Represents the IRibbonUI instance that is provided by the Microsoft Office application to the Ribbon extensibility code. </param>
-        /// <remarks></remarks>
         public void Ribbon_Load(Office.IRibbonUI ribbonUI)
         {
             try
@@ -109,11 +73,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Assigns an image to a button on the ribbon in the xml file
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <returns>A method that returns a bitmap image for the control id. </returns> 
         public System.Drawing.Bitmap GetButtonImage(Office.IRibbonControl control)
         {
             try
@@ -154,11 +113,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Assigns text to a label on the ribbon from the xml file
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <returns>A method that returns a string for a label. </returns> 
         public string GetLabelText(Office.IRibbonControl control)
         {
             try
@@ -194,11 +148,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Assigns the number of items for a combobox or dropdown
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <returns>A method that returns an integer of total count of items used for a combobox or dropdown </returns> 
         public int GetItemCount(Office.IRibbonControl control)
         {
             try
@@ -221,12 +170,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Assigns the values to a combobox or dropdown based on an index
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <param name="index">Represents the index of the combobox or dropdown value </param>
-        /// <returns>A method that returns a string per index of a combobox or dropdown </returns> 
         public string GetItemLabel(Office.IRibbonControl control, int index)
         {
             try
@@ -260,12 +203,7 @@ namespace Markup.Scripts
             }
 
         }
-                
-        /// <summary> 
-        /// Assigns default values to dropdowns
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <returns>A method that returns a string for the default value of a dropdown </returns> 
+
         public string GetSelectedItemID(Office.IRibbonControl control)
         {
             try
@@ -283,11 +221,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Assigns the enabled to controls
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <returns>A method that returns true or false if the control is enabled </returns> 
         public bool GetEnabled(Office.IRibbonControl control)
         {
             try
@@ -318,11 +251,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary>
-        /// Assigns the value to an application setting
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <returns>A method that returns true or false if the control is enabled </returns> 
         public void OnAction(Office.IRibbonControl control)
         {
             try
@@ -387,12 +315,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Preforms an action based on the index of the control
-        /// </summary>
-        /// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility. </param>
-        /// <param name="itemId">Represents the item identifier of the combobox </param>
-        /// <param name="index">Represents the index value of the combobox </param>
         public void OnAction_Dropdown(Office.IRibbonControl control, string itemId, int index)
         {
             try
@@ -433,11 +355,6 @@ namespace Markup.Scripts
 
         }
 
-		/// <summary>
-		/// Preforms an action based on the text change of the control
-		/// </summary>
-		/// <param name="control">Represents the object passed into the callback procedure of a control in a ribbon or another user interface that can be customized by using Office Fluent ribbon extensibility.</param>
-		/// <param name="text">Represents the text identifier of the control</param>
 		public void OnChange(Office.IRibbonControl control, ref string text)
 		{
 			try
@@ -462,10 +379,6 @@ namespace Markup.Scripts
 
 		#region | Ribbon Buttons |
 
-		/// <summary> 
-		/// Creates a revision triangle and prompts the user for text value(s)
-		/// </summary>
-		/// <remarks></remarks>
 		public void CreateRevisionTriangle()
         {
             Excel.Shape shpTriangle = null;
@@ -551,10 +464,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Creates an inverse/hold cloud object for the selected cells
-        /// </summary>
-        /// <remarks></remarks>
         public void CreateCloudHold()
         {
             Excel.Shape cloudLineTop = null;
@@ -607,10 +516,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Creates a cloud object for the selected cells with hatches for demolition
-        /// </summary>
-        /// <remarks></remarks>
         public void CreateCloudHatch()
         {
             Excel.Shape cloudPart = null;
@@ -654,10 +559,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Creates demolition hatching for selected cells
-        /// </summary>
-        /// <remarks></remarks>
         public void CreateAreaHatching()
         {
             try
@@ -688,20 +589,12 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Select the color for the line from a dialog box
-        /// </summary>
-        /// <remarks></remarks>
         public void SelectLineColor()
         {
             ErrorHandler.CreateLogRecord();
             Properties.Settings.Default.Markup_ShapeLineColor = SelectColor();
         }
 
-        /// <summary> 
-        /// Remove the last shape created from the current session
-        /// </summary>
-        /// <remarks></remarks>
         public void RemoveLastShape()
         {
             Excel.Worksheet xlWorkSheet = null;
@@ -748,10 +641,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Remove all shapes from the current sheet
-        /// </summary>
-        /// <remarks></remarks>
         public void RemoveAllShapes()
         {
             Excel.Worksheet xlWorkSheet = null;
@@ -803,10 +692,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Opens the settings form
-        /// </summary>
-        /// <remarks></remarks>
         public void OpenSettings()
         {
             try
@@ -839,10 +724,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Opens an as built help file
-        /// </summary>
-        /// <remarks></remarks>
         public void OpenReadMe()
         {
             ErrorHandler.CreateLogRecord();
@@ -850,10 +731,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Opens an as built help file
-        /// </summary>
-        /// <remarks></remarks>
         public void OpenNewIssue()
         {
             ErrorHandler.CreateLogRecord();
@@ -865,16 +742,6 @@ namespace Markup.Scripts
 
 		#region | Subroutines |
 
-		/// <summary> 
-		/// Creates an arc based on user selection
-		/// </summary>
-		/// <param name="x1">X Axis 1 </param>
-		/// <param name="y1">Y Axis 1 </param>
-		/// <param name="x2">X Axis 2 </param>
-		/// <param name="y2">Y Axis 2 </param>
-		/// <param name="length">description here... </param>
-		/// <returns>A method that creates an arc shape between 2 sets for coordinates </returns> 
-		/// <remarks></remarks>
 		public Excel.Shape CreateArc(double x1, double y1, double x2, double y2, double length)
         {
             Excel.Shape cloudArc = null;
@@ -923,15 +790,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Draws the side of a cloud between the specified coordinates.
-        /// </summary>
-        /// <param name="x1">X Axis 1 </param>
-        /// <param name="y1">Y Axis 1 </param>
-        /// <param name="x2">X Axis 2 </param>
-        /// <param name="y2">Y Axis 2 </param>
-        /// <returns>A method that creates series of arc shapes between 2 sets for coordinates </returns> 
-        /// <remarks></remarks>
         public Excel.Shape CreateCloudLine(double x1, double y1, double x2, double y2)
         {
             Excel.Shape cloudArc = null;
@@ -980,12 +838,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary> 
-        /// Creates a part of the cloud for the selected cells (B=Bottom, T=Top, L=Left, R=Right, ALL=all sides of cloud)
-        /// </summary>
-        /// <param name="cloudPart">The name of the side of the cloud part </param>
-        /// <returns>the grouped shape </returns> 
-        /// <remarks></remarks>
         public Excel.Shape CreateCloudPart(string cloudPart)
         {
             if (ErrorHandler.IsEnabled(true) == false)
@@ -1057,15 +909,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Creates a hatch area for the selected cells
-        /// </summary>
-        /// <param name="x">X Axis </param>
-        /// <param name="y">Y Axis </param>
-        /// <param name="h">Height </param>
-        /// <param name="w">Width </param>
-        /// <returns>A method that creates series of line shapes between within an area of 2 sets for coordinates </returns> 
-        /// <remarks></remarks>
         public Excel.Shape CreateHatchArea(double x, double y, double h, double w)
         {
             string shapeName = AssemblyInfo.Title.ToLower();
@@ -1197,9 +1040,6 @@ namespace Markup.Scripts
             }
         }
 
-        /// <summary>
-        /// Set the shape line color for the clouds
-        /// </summary>
         public void SetLineColor()
         {
             try
@@ -1215,11 +1055,6 @@ namespace Markup.Scripts
 
         }
 
-        /// <summary> 
-        /// Select a color from a dialog box
-        /// </summary>
-        /// <returns>The selected color from the dialog box </returns> 
-        /// <remarks></remarks>
         public System.Drawing.Color SelectColor()
         {
             try
@@ -1243,18 +1078,12 @@ namespace Markup.Scripts
 
             }
         }
-        
-        /// <summary>
-        /// Used to update/reset the ribbon values
-        /// </summary>
+
         public void InvalidateRibbon()
         {
             ribbon.Invalidate();
         }
 
-		/// <summary>
-		/// Update the line color of selected shapes
-		/// </summary>
 		public void UpdateLineColor()
 		{
 			try
